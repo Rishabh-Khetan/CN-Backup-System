@@ -1,0 +1,11 @@
+s1 flow h1->h2, before: path A (via s2, cost 10)
+s1 flow h1->h2, during: path B (via s3, cost 40)
+s1 flow h1->h2, after : path A (via s2, cost 10)
+
+Packets sent / received    : 170 / 170
+Packets lost               : none
+Median RTT before failure  : 21.5 ms   (expect ~22 ms, path A)
+Median RTT during outage   : 82.0 ms   (expect ~85 ms, path B)
+Median RTT after restore   : 22.9 ms   (expect ~22 ms, path A)
+Longest gap between replies at failure : 264 ms   (normal is 200 ms)
+Longest gap between replies at restore : 231 ms

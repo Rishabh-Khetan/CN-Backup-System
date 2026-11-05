@@ -1,0 +1,11 @@
+sh sleep 8
+sh ovs-ofctl -O OpenFlow13 dump-flows s1 > /tmp/flows_before.txt
+link s2 s4 down
+sh sleep 1
+sh ovs-ofctl -O OpenFlow13 dump-flows s1 > /tmp/flows_during.txt
+sh sleep 10
+link s2 s4 up
+sh sleep 1
+sh ovs-ofctl -O OpenFlow13 dump-flows s1 > /tmp/flows_after.txt
+sh sleep 12
+sh cat /tmp/ping.txt
